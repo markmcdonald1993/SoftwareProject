@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+            
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+      <style type="text/css">
+          .button {
+                background-color: black;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+
+            input[type=number] {
+                padding:5px; 
+                border:2px solid #ccc; 
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+             
+            }
+            
+            input[type=number]:focus {
+                border-color:#333;
+            }
+          
+      </style>
+        
+    <script>
+    
+        /*setInterval(function() {
+        
+            welcome();
+ 
+        }, 3000 );
+        
+        function welcome(){
+                $.ajax({
+                    url:"welcome.php",
+                })
+                
+                .done(function(msg){
+                $('#welcome').html(msg);
+                
+                })
+        }*/
+
+    function get(){
+       age = document.getElementById('age').value;
+       gender = document.getElementById('gender').value;
+       
+       if (age==""){
+            alert("You must enter an age");
+       }
+       
+       else{
+            $.ajax({
+                url:'filter.php',
+                type:'get',
+                data:{age:age, gender:gender},
+                success: function(data){
+                    $("#display" ).append(data);
+                },
+                cache:false
+                
+            })
+           
+       }
+       
+        
+
+    }
+        
+
+        
+        
+    </script>
+    </head>
+    <body>
+    <nav class="navbar navbar-default background_black">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" style="color: white;" href="index.html">Dating Application</a>
+            </div>
+          </div>
+    </nav>
+        
+    <div class="container background_bar max_width">
+        <img src="img/blueprint.jpg" class="max_width"></img>
+        
+    </div>
+        
+        <div id="welcome">
+            
+            
+        </div>
+        <br/>
+        <br/>
+        
+        <div class="container">
+            <div class ="row" style = "margin-bottom: 20px;">
+                <div class = "col-sm-6 background_bar">
+                    <h5>Lets filter and search through some other users!</h5>
+                    Age<br/>
+                    <input type="number" name="Age" id = "age" min="18" max="40"/>
+                    <br/>
+                    Gender <br/>
+                    <select name ="Gender" id ="gender" class="w3-select" style = "max-width: 30%;">
+                        <option value = "Male">Male
+                        
+                        </option>
+                        
+                        <option value = "Female" >Female
+                        
+                        </option>
+                    </select>
+                    <br/>
+                    <br/>
+                    <button class = "button" onclick="get()">Filter</button>
+                </div>
+                <div  id ="display" class ="col-sm-6">
+                            
+                </div>
+            </div>
+        </div>
+
+   <nav class="navbar navbar-default background_black " style = "margin-bottom: 0px;">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+          </div>
+    </nav>
+        
+        
+
+    </body>
+    <!--https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar&stacked=h
+    https://www.w3schools.com/w3css/w3css_input.asp
+    -->
+</html>

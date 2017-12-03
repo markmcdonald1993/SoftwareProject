@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        
+        <form action = "form.php" method ="POST" enctype="multipart/form-data">
+            First Name:<br/>
+            <input type="text" name="Fname" required="true"/>
+            <br/>
+            Last Name:<br/>
+            <input type="text" name="Lname" required="true"/>
+            <br/>
+            Age<br/>
+            <input type="number" name="Age" min="18" max="40">
+            <br/>
+            Gender <br/><br/>
+            <select name ="Gender">
+                <option value = "Male">Male
+                
+                </option>
+                
+                <option value = "Female" >Female
+                
+                </option>
+            </select>
+            <br/>
+            Username:<br/>
+            <input type="text" name="Uname" required="true"/>
+            <br/>
+            Password:<br/>
+            <input type="password" name="Password" required="true"/>
+            <br/>
+            
+            <input type="file" name="userfile"/>
+            <br/>
+            <input type="submit"  name = "formSubmit" value="Submit"/>
+        </form>
+        
+        <br/>
+        <br/>
+        
+        <form action = "login.php" method ="POST">
+            Username:<br/>
+            <input type="text" name="Uname" required="true"/>
+            <br/>
+            Password:<br/>
+            <input type="password" name="Password" required="true"/>
+            <br/>
+            <input type="submit"  name = "formSubmit" value="Submit"/>
+        </form>
+
+    </body>
+</html>
